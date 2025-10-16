@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empower Moms - Your Path to Financial Freedom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #8A2BE2; /* Purple - empowerment */
+            --primary-dark: #6A1B9A;
+            --secondary: #FF69B4; /* Pink - feminine energy */
+            --accent: #FFD700; /* Gold - financial success */
+            --success: #4CAF50;
+            --light: #FFF8F8; /* Soft pink background */
+            --dark: #2C2C54;
+            --gray: #7B7B7B;
+            --gray-light: #F5F5F5;
+            
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+            
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0;
+        }
+
+        .logo span {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--dark);
+            margin: 3px 0;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.1"><polygon fill="white" points="0,1000 1000,0 1000,1000"/></svg>');
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            color: #FFE4E1; /* Changed to a lighter pink shade */
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--dark);
+        }
+
+        .btn-large {
+            padding: 18px 36px;
+            font-size: 1.1rem;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 400px;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            text-align: center;
+            animation: float 3s ease-in-out infinite;
+            box-shadow: var(--shadow);
+        }
+
+        .floating-card i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: block;
+            color: var(--accent);
+        }
+
+        .card-1 {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .card-2 {
+            top: 50%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+
+        .card-3 {
+            bottom: 10%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+
+        /* Courses Section */
+        .courses-section {
+            background: white;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .course-card {
+            background: var(--light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .course-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .course-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .course-description {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .course-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .course-features li {
+            padding: 0.3rem 0;
+            color: var(--gray);
+        }
+
+        .course-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .course-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .add-to-cart:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .courses-cta {
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            margin-top: 2rem;
+        }
+
+        .courses-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: var(--light);
+            padding: 80px 0;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary);
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            opacity: 0.2;
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: var(--dark);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .testimonial-author strong {
+            display: block;
+            color: var(--dark);
+        }
+
+        .testimonial-author span {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            width: 20px;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: var(--transition);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3,
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-light);
+        }
+
+        /* Shopping Cart */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+            z-index: 2000;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .cart-item-info h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .delete-item {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-total {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--gray-light);
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--success);
+            color: white;
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            z-index: 3000;
+            animation: slideInRight 0.3s ease;
+            display: none;
+        }
+
+        /* Admin Dashboard */
+        .admin-dashboard {
+            display: none;
+            padding: 120px 0 80px;
+            background: var(--light);
+            min-height: 100vh;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .admin-section {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .admin-table th, .admin-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .admin-table th {
+            background: var(--light);
+            font-weight: 600;
+        }
+
+        /* AI Chatbot */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            height: 450px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-xl);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chatbot-header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chatbot-avatar {
+            width: 40px;
+            height: 40px;
+            background: white;
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 0.8rem 1rem;
+            border-radius: var(--border-radius);
+        }
+
+        .bot-message {
+            background: var(--light);
+            align-self: flex-start;
+        }
+
+        .user-message {
+            background: var(--primary);
+            color: white;
+            align-self: flex-end;
+        }
+
+        .chatbot-input {
+            padding: 1rem;
+            border-top: 1px solid var(--gray-light);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            outline: none;
+        }
+
+        .chatbot-input button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 0.8rem 1rem;
+            cursor: pointer;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .hero-actions {
+                justify-content: center;
+                flex-direction: column;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .cart-modal {
+                width: 100%;
+            }
+            
+            .steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .chatbot-window {
+                width: calc(100vw - 40px);
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <h1>Empower Moms</h1>
+                <span>Your Path to Financial Freedom</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#testimonials">Success Stories</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="cart-icon" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </li>
+                <li><a href="#" onclick="showAdminDashboard()">Admin</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Financial Freedom for Moms</h1>
+                <p class="hero-subtitle">Transform your life with our proven courses designed specifically for moms who want to achieve financial independence while balancing family life.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">5,000+</span>
+                        <span class="stat-label">Moms Transformed</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">R2.5M+</span>
+                        <span class="stat-label">Total Earnings</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#courses" class="btn btn-primary btn-large">Explore Courses</a>
+                    <a href="#contact" class="btn btn-secondary">Get Free Consultation</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <i class="fas fa-piggy-bank"></i>
+                    <span>Save & Invest</span>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Grow Income</span>
+                </div>
+                <div class="floating-card card-3">
+                    <i class="fas fa-balance-scale"></i>
+                    <span>Balance Life</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses-section">
+        <div class="container">
+            <h2 class="section-title">Transformative Courses</h2>
+            <p class="section-subtitle">Designed specifically for moms who want to achieve financial independence without sacrificing family time.</p>
+            
+            <div class="courses-grid" id="coursesGrid">
+                <!-- Courses loaded dynamically -->
+            </div>
+
+            <div class="courses-cta">
+                <h3>Ready to Start Your Journey to Financial Freedom?</h3>
+                <p>Join thousands of moms who have transformed their financial lives</p>
+                <a href="https://wa.me/2764245061?text=Hi%20Empower%20Moms!%20I%20want%20to%20learn%20more%20about%20your%20courses" class="btn btn-primary btn-large" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Chat with Us on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Your Path to Financial Freedom</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">1</div>
+                    <h3>Enroll in a Course</h3>
+                    <p>Choose from our carefully designed courses that fit your schedule and goals</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">2</div>
+                    <h3>Learn at Your Pace</h3>
+                    <p>Access engaging content designed for busy moms - learn during naptime or after bedtime</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">3</div>
+                    <h3>Apply Your Knowledge</h3>
+                    <p>Implement practical strategies that deliver real financial results for your family</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">4</div>
+                    <h3>Achieve Financial Freedom</h3>
+                    <p>Build multiple income streams and secure your family's financial future</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Success Stories from Moms Like You</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"The Financial Planning for Moms course completely changed our family's future. I went from living paycheck to paycheck to saving R5,000 every month!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SM</div>
+                        <div>
+                            <strong>Sarah M.</strong>
+                            <span>Mom of 2, Cape Town</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"I started my online business while my baby napped. Now I earn more than my corporate job while being present for my family. Thank you Empower Moms!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">TJ</div>
+                        <div>
+                            <strong>Thandi J.</strong>
+                            <span>Entrepreneur, Johannesburg</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"The investing course gave me the confidence to grow our savings. I've built a portfolio that will pay for my children's education. Life-changing!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">NK</div>
+                        <div>
+                            <strong>Nomsa K.</strong>
+                            <span>Mom of 3, Durban</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>We're Here to Help You Succeed</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Cape Town, South Africa</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>076 424 5061 (WhatsApp Only)</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>support@empowermoms.com</span>
+                    </div>
+                    
+                    <a href="https://wa.me/2764245061?text=Hi%20Empower%20Moms!%20I%20want%20to%20learn%20more%20about%20your%20courses" class="whatsapp-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Message Us on WhatsApp
+                    </a>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Empower Moms</h3>
+                    <p>Helping moms achieve financial freedom through practical education and supportive community. Transform your family's future today.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Courses</h4>
+                    <ul>
+                        <li><a href="#courses">Financial Planning for Moms</a></li>
+                        <li><a href="#courses">Entrepreneurship from Home</a></li>
+                        <li><a href="#courses">Investing for Beginners</a></li>
+                        <li><a href="#courses">All Courses</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#contact">Help Center</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>Cape Town, South Africa</li>
+                        <li>076 424 5061 (WhatsApp)</li>
+                        <li>support@empowermoms.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Empower Moms. All rights reserved. | Your Path to Financial Freedom</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button onclick="toggleCart()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+        </div>
+        <div id="cartItems"></div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotalAmount">R0</span>
+        </div>
+        <button class="btn btn-primary checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <section class="admin-dashboard" id="adminDashboard">
+        <div class="container">
+            <div class="admin-header">
+                <h2>Admin Dashboard</h2>
+                <button class="btn btn-secondary" onclick="hideAdminDashboard()">Back to Website</button>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 id="totalSales">R0</h3>
+                    <p>Total Sales</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="totalCustomers">0</h3>
+                    <p>Total Customers</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="totalCourses">3</h3>
+                    <p>Courses Available</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="successRate">98%</h3>
+                    <p>Success Rate</p>
+                </div>
+            </div>
+            
+            <div class="admin-section">
+                <h3>Recent Orders</h3>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Course</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTable">
+                        <!-- Orders will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="admin-section">
+                <h3>Add New Course</h3>
+                <form id="addCourseForm">
+                    <input type="text" placeholder="Course Name" required>
+                    <input type="number" placeholder="Price (R)" required>
+                    <textarea placeholder="Description" required></textarea>
+                    <button type="submit" class="btn btn-primary">Add Course</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chatbot -->
+    <div class="chatbot-container">
+        <div class="chatbot-toggle" onclick="toggleChatbot()">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div>
+                    <strong>Megan AI</strong>
+                    <p>Online</p>
+                </div>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot-message">
+                    <p>Hi! I'm Megan, your AI assistant. How can I help you with your financial freedom journey today? 😊</p>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbotInput" placeholder="Type your message...">
+                <button onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <script>
+        // Course Data
+        let courses = [
+            {
+                id: 1,
+                name: "Financial Planning for Moms",
+                price: 500,
+                description: "Learn to budget, save, and plan for your family's financial future with proven strategies.",
+                features: ["Budgeting templates", "Savings strategies", "Debt reduction plan", "Family financial planning"],
+                badge: "Most Popular"
+            },
+            {
+                id: 2,
+                name: "Entrepreneurship from Home",
+                price: 1800,
+                description: "Start and grow a profitable business from home while balancing family responsibilities.",
+                features: ["Business idea validation", "Marketing on a budget", "Time management", "Scaling strategies"],
+                badge: "Best Value"
+            },
+            {
+                id: 3,
+                name: "Investing for Beginners",
+                price: 250,
+                description: "Simple, safe investment strategies to grow your wealth without complex financial knowledge.",
+                features: ["Basic investment principles", "Risk assessment", "Portfolio building", "Long-term wealth creation"],
+                badge: "New"
+            }
+        ];
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let orders = JSON.parse(localStorage.getItem('orders')) || [];
+        let customers = JSON.parse(localStorage.getItem('customers')) || [];
+
+        // AI Agent System Simulation
+        const AIAgents = {
+            marketing: {
+                postToSocialMedia: function() {
+                    console.log("AI Marketing Agent: Posting to social media...");
+                    // In a real implementation, this would call social media APIs
+                },
+                analyzePerformance: function() {
+                    console.log("AI Marketing Agent: Analyzing campaign performance...");
+                    return {
+                        engagement: "high",
+                        conversions: "increasing",
+                        recommendations: ["Increase Instagram posts", "Run Facebook ads"]
+                    };
+                }
+            },
+            customerSupport: {
+                generateResponse: function(query) {
+                    const responses = {
+                        "hello": "Hello! I'm Megan, your AI assistant. How can I help you with your financial freedom journey today?",
+                        "course": "We offer several courses designed specifically for moms. Which one are you interested in?",
+                        "price": "Our courses range from R250 to R1800. Financial Planning for Moms is R500, Entrepreneurship from Home is R1800, and Investing for Beginners is R250.",
+                        "payment": "We accept all major credit cards and PayPal. All payments are secure and encrypted.",
+                        "refund": "We offer a 30-day money-back guarantee if you're not satisfied with any course.",
+                        "default": "I'm here to help! For specific questions about courses, payments, or technical issues, feel free to ask."
+                    };
+                    
+                    query = query.toLowerCase();
+                    for (const key in responses) {
+                        if (query.includes(key)) {
+                            return responses[key];
+                        }
+                    }
+                    return responses["default"];
+                }
+            },
+            payment: {
+                processPayment: function(amount, courseName) {
+                    console.log(`AI Payment Agent: Processing payment of R${amount} for ${courseName}`);
+                    // In a real implementation, this would integrate with payment gateways
+                    return {
+                        success: true,
+                        transactionId: "TX" + Date.now(),
+                        message: "Payment processed successfully"
+                    };
+                },
+                distributeFunds: function(amount) {
+                    const distribution = {
+                        owner: amount * 0.6,
+                        ai: amount * 0.2,
+                        reserve: amount * 0.2
+                    };
+                    console.log("AI Payment Agent: Distributing funds:", distribution);
+                    return distribution;
+                }
+            }
+        };
+
+        // Display Courses
+        function displayCourses() {
+            const courseGrid = document.getElementById('coursesGrid');
+            courseGrid.innerHTML = courses.map(course => `
+                <div class="course-card">
+                    <div class="course-image">
+                        <i class="fas fa-graduation-cap"></i>
+                        ${course.badge ? `<div class="course-badge">${course.badge}</div>` : ''}
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">${course.name}</h3>
+                        <p class="course-description">${course.description}</p>
+                        <ul class="course-features">
+                            ${course.features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                        <div class="course-price">R${course.price}</div>
+                        <button class="add-to-cart" onclick="addToCart(${course.id})">
+                            <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Cart Functions
+        function addToCart(courseId) {
+            const course = courses.find(c => c.id === courseId);
+            const existingItem = cart.find(item => item.id === courseId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ ...course, quantity: 1 });
+            }
+            
+            updateCart();
+            showNotification(`${course.name} added to cart!`);
+            
+            // AI Marketing - track interest
+            AIAgents.marketing.analyzePerformance();
+        }
+
+        function removeFromCart(courseId) {
+            cart = cart.filter(item => item.id !== courseId);
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartCount = document.querySelector('.cart-count');
+            const cartItems = document.getElementById('cartItems');
+            const cartTotalAmount = document.getElementById('cartTotalAmount');
+            
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Update cart items
+            cartItems.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <div class="cart-item-info">
+                        <h4>${item.name}</h4>
+                        <div class="cart-item-price">R${item.price} x ${item.quantity}</div>
+                    </div>
+                    <button class="delete-item" onclick="removeFromCart(${item.id})">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `).join('');
+            
+            // Update total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartTotalAmount.textContent = `R${total}`;
+            
+            // Save to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function toggleCart() {
+            const cartModal = document.getElementById('cartModal');
+            cartModal.style.display = cartModal.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty!', 'error');
+                return;
+            }
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const courseNames = cart.map(item => item.name).join(', ');
+            
+            // Process payment with AI agent
+            const paymentResult = AIAgents.payment.processPayment(total, courseNames);
+            
+            if (paymentResult.success) {
+                // Record the order
+                const order = {
+                    id: Date.now(),
+                    courses: [...cart],
+                    total: total,
+                    date: new Date().toLocaleDateString(),
+                    customer: "New Customer" // In a real app, this would be the logged-in user
+                };
+                
+                orders.push(order);
+                localStorage.setItem('orders', JSON.stringify(orders));
+                
+                // Distribute funds with AI agent
+                AIAgents.payment.distributeFunds(total);
+                
+                // AI Marketing - track conversion
+                AIAgents.marketing.postToSocialMedia();
+                
+                // Redirect to WhatsApp with order details
+                const message = `Hi Empower Moms! I want to purchase: ${courseNames}. Total: R${total}. Please help me complete my order.`;
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/2764245061?text=${encodedMessage}`, '_blank');
+                
+                // Clear cart
+                cart = [];
+                updateCart();
+                toggleCart();
+                
+                showNotification('Order processed successfully! Redirecting to WhatsApp...');
+            } else {
+                showNotification('Payment failed. Please try again.', 'error');
+            }
+        }
+
+        // Admin Dashboard Functions
+        function showAdminDashboard() {
+            document.querySelector('.hero').style.display = 'none';
+            document.querySelector('.courses-section').style.display = 'none';
+            document.querySelector('.how-it-works').style.display = 'none';
+            document.querySelector('.testimonials').style.display = 'none';
+            document.querySelector('.contact').style.display = 'none';
+            document.querySelector('.footer').style.display = 'none';
+            
+            document.getElementById('adminDashboard').style.display = 'block';
+            
+            updateAdminStats();
+        }
+
+        function hideAdminDashboard() {
+            document.querySelector('.hero').style.display = 'block';
+            document.querySelector('.courses-section').style.display = 'block';
+            document.querySelector('.how-it-works').style.display = 'block';
+            document.querySelector('.testimonials').style.display = 'block';
+            document.querySelector('.contact').style.display = 'block';
+            document.querySelector('.footer').style.display = 'block';
+            
+            document.getElementById('adminDashboard').style.display = 'none';
+        }
+
+        function updateAdminStats() {
+            const totalSales = orders.reduce((sum, order) => sum + order.total, 0);
+            const totalCustomers = new Set(orders.map(order => order.customer)).size;
+            
+            document.getElementById('totalSales').textContent = `R${totalSales}`;
+            document.getElementById('totalCustomers').textContent = totalCustomers;
+            document.getElementById('totalCourses').textContent = courses.length;
+            
+            // Update orders table
+            const ordersTable = document.getElementById('ordersTable');
+            ordersTable.innerHTML = orders.map(order => `
+                <tr>
+                    <td>#${order.id}</td>
+                    <td>${order.customer}</td>
+                    <td>${order.courses.map(c => c.name).join(', ')}</td>
+                    <td>R${order.total}</td>
+                    <td>${order.date}</td>
+                </tr>
+            `).join('');
+        }
+
+        // Chatbot Functions
+        function toggleChatbot() {
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            chatbotWindow.style.display = chatbotWindow.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatbotInput');
+            const message = input.value.trim();
+            
+            if (message === '') return;
+            
+            // Add user message
+            const messagesContainer = document.getElementById('chatbotMessages');
+            messagesContainer.innerHTML += `
+                <div class="message user-message">
+                    <p>${message}</p>
+                </div>
+            `;
+            
+            // Clear input
+            input.value = '';
+            
+            // Generate AI response
+            setTimeout(() => {
+                const response = AIAgents.customerSupport.generateResponse(message);
+                messagesContainer.innerHTML += `
+                    <div class="message bot-message">
+                        <p>${response}</p>
+                    </div>
+                `;
+                
+                // Scroll to bottom
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 1000);
+            
+            // Scroll to bottom
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.style.display = 'block';
+            notification.style.background = type === 'error' ? 'var(--secondary)' : 'var(--success)';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            displayCourses();
+            updateCart();
+            
+            // Add scroll effect to header
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                    header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                    header.style.boxShadow = 'var(--shadow)';
+                }
+            });
+            
+            // Contact form submission
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                showNotification('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+            
+            // Add course form submission (admin)
+            document.getElementById('addCourseForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                const name = this[0].value;
+                const price = parseInt(this[1].value);
+                const description = this[2].value;
+                
+                const newCourse = {
+                    id: courses.length + 1,
+                    name: name,
+                    price: price,
+                    description: description,
+                    features: ["New course features"],
+                    badge: "New"
+                };
+                
+                courses.push(newCourse);
+                localStorage.setItem('courses', JSON.stringify(courses));
+                
+                displayCourses();
+                updateAdminStats();
+                this.reset();
+                
+                showNotification('New course added successfully!');
+            });
+            
+            // Make menu links work
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Start AI Marketing
+            AIAgents.marketing.postToSocialMedia();
+        });
+    </script>
+</body>
+</html>
